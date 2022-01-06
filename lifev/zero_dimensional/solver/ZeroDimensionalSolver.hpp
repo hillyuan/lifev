@@ -76,7 +76,7 @@
 #include <Teuchos_VerboseObject.hpp>
 #include <Teuchos_StandardCatchMacros.hpp>
 #include <Teuchos_XMLParameterListHelpers.hpp>
-#include <Teuchos_RCPBoostSharedPtrConversions.hpp>
+//#include <Teuchos_RCPBoostSharedPtrConversions.hpp>
 
 
 // LIFEV includes

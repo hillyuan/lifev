@@ -47,7 +47,7 @@
 #endif
 #include <BelosRCGSolMgr.hpp>
 #include <BelosTFQMRSolMgr.hpp>
-#include "Teuchos_RCPBoostSharedPtrConversions.hpp"
+//#include "Teuchos_RCPBoostSharedPtrConversions.hpp"
 
 namespace LifeV
 {

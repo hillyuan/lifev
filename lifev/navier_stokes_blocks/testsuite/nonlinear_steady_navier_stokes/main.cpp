@@ -85,10 +85,12 @@ main ( int argc, char** argv )
 
     if ( dataFile ( "offline_partitioner/useOfflinePartitionedMesh", false) )
     {
+#ifdef LIFEV_HAS_HDF5
     	std::shared_ptr<Epetra_MpiComm> comm = std::dynamic_pointer_cast<Epetra_MpiComm>(Comm);
     	const std::string partsFileName (dataFile ("offline_partitioner/hdf5_file_name", "name.h5") );
     	PartitionIO<mesh_Type > partitionIO (partsFileName, comm);
     	partitionIO.read (localMeshPtr);
+#endif
     }
     else
     {

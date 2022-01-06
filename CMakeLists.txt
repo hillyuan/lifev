@@ -38,9 +38,10 @@ PROJECT(${PROJECT_NAME} NONE)
 SET(${PROJECT_NAME}_ENABLE_Fortran OFF CACHE BOOL "Disable Fortran compiler")
 
 # set up a Profiling build type
-SET(CMAKE_CXX_FLAGS_PROFILING "-O3 -pg -g" CACHE STRING "CXX profiling flags")
-SET(CMAKE_C_FLAGS_PROFILING   "-O3 -pg -g" CACHE STRING "C profiling flags")
-
+#SET(CMAKE_CXX_FLAGS_PROFILING "-O3 -pg -g -openmp" CACHE STRING "CXX profiling flags")
+#SET(CMAKE_C_FLAGS_PROFILING   "-O3 -pg -g -openmp" CACHE STRING "C profiling flags")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -qopenmp")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -qopenmp")
 #
 # B) Pull in the TriBITS system and execute
 #

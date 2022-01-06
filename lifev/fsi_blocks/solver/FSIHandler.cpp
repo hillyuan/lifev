@@ -153,6 +153,7 @@ FSIHandler::readPartitionedMeshes( )
 
 	// Load fluid mesh part from HDF5
 	M_displayer.leaderPrint ( "\tReading the fluid mesh parts\n" ) ;
+#ifdef LIFEV_HAS_HDF5
 	PartitionIO<mesh_Type > partitionIO (fluidHdf5File, comm);
 	partitionIO.read (M_fluidLocalMesh);
 
@@ -160,6 +161,7 @@ FSIHandler::readPartitionedMeshes( )
 	M_displayer.leaderPrint ( "\tReading the solid mesh parts\n" ) ;
 	PartitionIO<mesh_Type > partitionIOstructure (solidHdf5File, comm);
 	partitionIOstructure.read (M_structureLocalMesh);
+#endif
 }
 
 void FSIHandler::setup ( )
@@ -826,8 +828,10 @@ void FSIHandler::buildInterfaceMaps ()
 		{
 			const std::string interfaceHdf5File (M_datafile ("offlinePartioner/interfacePartitioned", "interface.h5") );
 			std::shared_ptr<Epetra_MpiComm> comm = std::dynamic_pointer_cast<Epetra_MpiComm>(M_comm);
+#ifdef LIFEV_HAS_HDF5
 			DOFInterfaceIO interfaceIO (interfaceHdf5File, comm);
 			interfaceIO.read (M_localDofMap);
+#endif
 		}
 
 		createInterfaceMaps ( *M_localDofMap );

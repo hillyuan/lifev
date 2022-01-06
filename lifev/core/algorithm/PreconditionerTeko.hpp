@@ -56,7 +56,7 @@
 #include "Teko_BlockedEpetraOperator.hpp"
 #include "Teko_EpetraBlockPreconditioner.hpp"
 #include "Teko_BlockPreconditionerFactory.hpp"
-#include "Teuchos_RCPBoostSharedPtrConversions.hpp"
+//#include "Teuchos_RCPBoostSharedPtrConversions.hpp"
 
 // for simplicity
 using Teuchos::RCP;

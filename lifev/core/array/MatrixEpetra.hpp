@@ -584,7 +584,7 @@ public:
      */
     const MapEpetra& domainMap() const;
 
-    const boost::shared_ptr< const MapEpetra >& domainMapPtr() const;
+    const std::shared_ptr< const MapEpetra >& domainMapPtr() const;
 
 
     //! Return the range MapEpetra of the MatrixEpetra
@@ -593,7 +593,7 @@ public:
       If this is an open matrix that M_domainMap is an invalid pointer
      */
     const MapEpetra& rangeMap() const;
-    const boost::shared_ptr< const MapEpetra >& rangeMapPtr() const;
+    const std::shared_ptr< const MapEpetra >& rangeMapPtr() const;
     
     //! Restrict the matrix to the dofs contained in the input map
     /*!
@@ -697,7 +697,7 @@ template <typename DataType>
 MatrixEpetra<DataType>::MatrixEpetra ( const MatrixEpetra& matrix, const UInt reduceToProc ) :
     M_map      ( matrix.getMap().createRootMap ( reduceToProc ) ),
     M_epetraCrs ( new matrix_type ( Copy, *M_map->map ( Unique ),
-                                    numEntries ( matrix.M_epetraCrs->Map().Comm().MyPID() == reduceToProc ) * 20,
+                                    this->numEntries ( matrix.M_epetraCrs->Map().Comm().MyPID() == reduceToProc ) * 20,
                                     false ) )
 {
     Epetra_Export reducedExport ( M_epetraCrs->Map(), matrix.M_epetraCrs->Map() );
@@ -1684,7 +1684,7 @@ const MapEpetra& MatrixEpetra<DataType>::domainMap() const
 }
 
 template <typename DataType>
-const boost::shared_ptr< const MapEpetra >& MatrixEpetra<DataType>::domainMapPtr() const
+const std::shared_ptr< const MapEpetra >& MatrixEpetra<DataType>::domainMapPtr() const
 {
     return M_domainMap;
 }
@@ -1697,7 +1697,7 @@ const MapEpetra& MatrixEpetra<DataType>::rangeMap() const
 }
 
 template <typename DataType>
-const boost::shared_ptr< const MapEpetra >& MatrixEpetra<DataType>::rangeMapPtr() const
+const std::shared_ptr< const MapEpetra >& MatrixEpetra<DataType>::rangeMapPtr() const
 {
     return M_rangeMap;
 }
