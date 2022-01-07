@@ -28,6 +28,8 @@ cmake ..  									                     \
 -DLifeV_ENABLE_ALL_PACKAGES=ON						             \
 -DLifeV_ENABLE_TESTS=ON                                          \
 -DLifeV_ENABLE_EXAMPLES=ON \
+-DTPL_ENABLE_HDF5=ON    \
+-DHDF5_INCLUDE_DIRS="/usr/include/hdf5/serial"
 
 #decomment this to have it verbose
 # make VERBOSE=1 -j4

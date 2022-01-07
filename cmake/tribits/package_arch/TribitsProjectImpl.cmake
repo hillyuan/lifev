@@ -339,12 +339,12 @@ MACRO(TRIBITS_PROJECT_IMPL)
   # refer to all TPLs used by ${PROJECT_NAME}. (KRL, 26 Nov 2009)
   #
   
-  IF (${PROJECT_NAME}_ENABLE_INSTALL_CMAKE_CONFIG_FILES)
-    MESSAGE("")
-    MESSAGE("Exporting library dependencies ...")
-    MESSAGE("")
-    EXPORT_LIBRARY_DEPENDENCIES( ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}LibraryDepends.cmake )
-  ENDIF()
+  #IF (${PROJECT_NAME}_ENABLE_INSTALL_CMAKE_CONFIG_FILES)
+  #  MESSAGE("")
+  #  MESSAGE("Exporting library dependencies ...")
+  #  MESSAGE("")
+  #  EXPORT_LIBRARY_DEPENDENCIES( ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}LibraryDepends.cmake )
+  #ENDIF()
 
   
   #
