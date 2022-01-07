@@ -24,9 +24,7 @@ rm -f *.cmake
 rm -rf CMakeFiles\
 
 cmake ..  									                     \
--DCMAKE_CXX_COMPILER=mpiicpc						             \
--DCMAKE_C_COMPILER=mpiicc			    			             \
--DTrilinos_DIR="$HOME/myprograms/Trilinos/install"               \
+-DTrilinos_DIR="/usr/local/Trilinos"               \
 -DLifeV_ENABLE_ALL_PACKAGES=ON						             \
 -DLifeV_ENABLE_TESTS=ON                                          \
 -DLifeV_ENABLE_EXAMPLES=ON \

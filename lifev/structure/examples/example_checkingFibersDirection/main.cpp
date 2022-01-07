@@ -249,10 +249,10 @@ Structure::run3d()
 
         std::shared_ptr<Epetra_MpiComm> mpiComm =
             std::dynamic_pointer_cast<Epetra_MpiComm>(parameters->comm);
+#ifdef LIFEV_HAS_HDF5
         PartitionIO<mesh_Type> partitionIO (partsFileName, mpiComm);
-
-
         partitionIO.read (pointerToMesh);
+#endif
 
     }
 

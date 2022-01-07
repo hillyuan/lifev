@@ -268,12 +268,12 @@ Structure::run3d()
     {
         //Creating a mesh object from a partitioned mesh
         const std::string partsFileName (dataFile ("partitioningOffline/hdf5_file_name", "NO_DEFAULT_VALUE.h5") );
-
+#ifdef LIFEV_HAS_HDF5
         std::shared_ptr<Epetra_MpiComm> mpiComm =
             std::dynamic_pointer_cast<Epetra_MpiComm>(parameters->comm);
         PartitionIO<mesh_Type> partitionIO (partsFileName, mpiComm);
-
         partitionIO.read (pointerToMesh);
+#endif
 
     }
 

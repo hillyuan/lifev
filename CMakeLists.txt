@@ -40,8 +40,17 @@ SET(${PROJECT_NAME}_ENABLE_Fortran OFF CACHE BOOL "Disable Fortran compiler")
 # set up a Profiling build type
 #SET(CMAKE_CXX_FLAGS_PROFILING "-O3 -pg -g -openmp" CACHE STRING "CXX profiling flags")
 #SET(CMAKE_C_FLAGS_PROFILING   "-O3 -pg -g -openmp" CACHE STRING "C profiling flags")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -qopenmp")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -qopenmp")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -fopenmp -std=c++11")
+#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -fopenmp -std=c++11")
+set(CMAKE_CXX_COMPILER ${Trilinos_CXX_COMPILER})
+set(CMAKE_C_COMPILER ${Trilinos_C_COMPILER})
+#set(CMAKE_Fortran_COMPILER ${Trilinos_Fortran_COMPILER})
+
+message("-- CMAKE_SYSTEM_NAME = ${CMAKE_SYSTEM_NAME}")
+message("-- CMAKE_CXX_COMPILER_ID = ${CMAKE_CXX_COMPILER_ID}")
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Trilinos_CXX_COMPILER_FLAGS} ${EXTRA_CXX_FLAGS} -std=c++14 -fopenmp")
+message("-- CMAKE_CXX_FLAGS = ${CMAKE_CXX_FLAGS}")
 #
 # B) Pull in the TriBITS system and execute
 #

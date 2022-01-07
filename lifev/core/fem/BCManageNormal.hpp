@@ -279,7 +279,7 @@ BCManageNormal<MatrixType>::BCManageNormal() :
 //Copy Constructor
 template<typename MatrixType>
 BCManageNormal<MatrixType>::BCManageNormal ( const BCManageNormal& bcManageNormal ) :
-    M_dataBuilt (bcManageNormal.M_dataBuilt),
+//    M_dataBuilt(bcManageNormal.M_dataBuilt),
     M_rotationMatrixPtr (new matrix_Type (*bcManageNormal.M_rotationMatrixPtr) ),
     M_localMapEpetraPtr (new MapEpetra (*bcManageNormal.M_localMapEpetraPtr) ),
     M_firstTangentPtr (new VectorEpetra (*bcManageNormal.M_firstTangentPtr) ),
@@ -291,7 +291,7 @@ BCManageNormal<MatrixType>::BCManageNormal ( const BCManageNormal& bcManageNorma
     M_flags (bcManageNormal.M_flags),
     M_givenVersors (bcManageNormal.M_givenVersors)
 {
-    // Nothing to be done here
+    M_dataBuilt = bcManageNormal.M_dataBuilt;
 }
 
 // Destructor.
@@ -312,7 +312,7 @@ BCManageNormal<MatrixType>::operator= ( const BCManageNormal& bcManageNormal )
 {
     if (this != &bcManageNormal)
     {
-        M_dataBuilt (bcManageNormal.M_dataBuilt);
+        M_dataBuilt = bcManageNormal.M_dataBuilt;
         M_rotationMatrixPtr.reset (new matrix_Type (*bcManageNormal.M_rotationMatrixPtr) );
         M_localMapEpetraPtr.reset (new MapEpetra (*bcManageNormal.M_localMapEpetraPtr) );
         M_firstTangentPtr.reset (new VectorEpetra (*bcManageNormal.M_firstTangentPtr) );

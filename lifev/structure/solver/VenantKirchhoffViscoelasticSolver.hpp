@@ -283,7 +283,7 @@ public:
      */
     MapEpetra   const& map()       const
     {
-        return M_localMap;
+        return *M_localMap;
     }
 
     //! Return the  map
@@ -292,7 +292,7 @@ public:
      */
     Displayer   const& displayer() const
     {
-        return M_displayer;
+        return *M_displayer;
     }
 
     //!Return the mass matrix
@@ -343,7 +343,7 @@ public:
      */
     BCHandler const& BChandler() const
     {
-        return M_BCh;
+        return *M_BCh;
     }
 
     //! Return the solution
